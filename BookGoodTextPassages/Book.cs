@@ -8,8 +8,15 @@ namespace BookGoodTextPassages
 {
     internal class Book
     {
-        public string[] book { get; set; }
+        public string[] book { get; set; } = new string[50];
 
+        public void createinput()
+        {
+            for (int i = 0; i < book.Length; i++)
+            {
+                book[i] = Convert.ToString(Console.ReadLine());
+            }
+        }
 
         public void site1()
         {
