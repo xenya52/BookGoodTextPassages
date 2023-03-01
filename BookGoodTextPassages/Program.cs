@@ -1,4 +1,4 @@
-﻿using BookGoodTextPassages;
+﻿namespace BookGoodTextPassages;
 using System.Security.Cryptography.X509Certificates;
 
 class Program
@@ -69,20 +69,11 @@ class Program
 
         else if (Input1 == 2)
         {
-            Book book1 = new Book("CutieLaura", 1);
-            Site site1 = new Site(5);
-            book1.addSite(site1);
-            //book1.addSite(site1).addqoute("qoute1").addqoute("qoute2");
-            for(int i = 0; i < site1.qoutecounter; i++)
-            {
-                site1.addqoute(Convert.ToString(Console.ReadLine()));
-            }
             //Reading menu
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("============");
             Console.WriteLine("Reading menu");
             Console.WriteLine("============");
-            for (int i = 0; i <)
         }
 
         else if (Input1 ==3)
