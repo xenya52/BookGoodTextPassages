@@ -5,49 +5,104 @@ class Program
 {
     static void Main(string[] args)
     {
-        Book EssaysDieDeinLebenVerändern = new Book();
 
         //Introduction
         Console.WriteLine("Welcome to my program!");
         Thread.Sleep(2000);
         Console.WriteLine("I will show you all the Book passages that toucht me deeply");
         Thread.Sleep(2000);
-        Console.WriteLine("Do you want to continue, please write - Yes -");
-        string Yes1 = Convert.ToString(Console.ReadLine());
+        Console.WriteLine("And you can write some too...");
+        Thread.Sleep(5000);
+        Console.Clear();
+        //Menu
+        Console.ForegroundColor = ConsoleColor.Blue;
+        Console.WriteLine("Welcome to the menu");
+        Console.WriteLine("===================");
+        Console.ForegroundColor = ConsoleColor.Cyan;
+        Console.WriteLine("|| Wanna write something?");
+        Console.ForegroundColor = ConsoleColor.DarkCyan;
+        Console.WriteLine("|| Press [ 1 ]");
+        Console.ForegroundColor = ConsoleColor.Cyan;
+        Console.WriteLine("|| Wanna read something?");
+        Console.ForegroundColor = ConsoleColor.DarkCyan;
+        Console.WriteLine("|| Press [ 2 ]");
+        Console.ForegroundColor = ConsoleColor.Cyan;
+        Console.WriteLine("||Wanna quit?");
+        Console.ForegroundColor = ConsoleColor.DarkCyan;
+        Console.WriteLine("||Press [ 3 ]");
+        int Input1 = Convert.ToInt32(Console.ReadLine());
 
-        if (Yes1 == "Yes")
+        if (Input1 == 1)
         {
-            //Language selection
-            Console.WriteLine("To select the Language, type the right number please");
-            Console.WriteLine("1 = Eng");
-            Console.WriteLine("2 = Ger");
-            int Number1 = Convert.ToInt32(Console.ReadLine());
-            
-            //Choosen Language Englisch
-            if (Number1 == 1) { }
-            //Choosen Language German
-            else if (Number1 == 2) 
-            { 
-                Book xEssaysDieDeinLebenVerändern = new Book();
-                //Creating my text passages
-                Console.WriteLine("Now you can write you good phrases");
-                xEssaysDieDeinLebenVerändern.createinput();
-            }
-            
-            //No valid input
-            else
+            //Creation menu
+            Console.ForegroundColor = ConsoleColor.Magenta;
+            Console.WriteLine("=============");
+            Console.WriteLine("Creation menu");
+            Console.WriteLine("=============");
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine("|| Create a new Book");
+            Console.ForegroundColor = ConsoleColor.DarkYellow;
+            Console.WriteLine("|| Press [ 1 ]");
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine("|| Create a new Text passage");
+            Console.ForegroundColor = ConsoleColor.DarkYellow;
+            Console.WriteLine("|| Press [ 2 ]");
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine("|| Go back");
+            Console.ForegroundColor = ConsoleColor.DarkYellow;
+            Console.WriteLine("|| Press [ 3 ]");
+            int Input2 = Convert.ToInt32(Console.ReadLine());
+
+            if (Input2 == 1)
             {
-                return;
+                //Creating a new Book
+                Console.ForegroundColor = ConsoleColor.Magenta;
+                Console.WriteLine("===================");
+                Console.WriteLine("Creating a new book");
+                Console.WriteLine("===================");
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine("|| Write the title of the book:");
+                //Method too create a book
+                
             }
         }
+
+        else if (Input1 == 2)
+        {
+            Book book1 = new Book("CutieLaura", 1);
+            Site site1 = new Site(5);
+            book1.addSite(site1);
+            //book1.addSite(site1).addqoute("qoute1").addqoute("qoute2");
+            for(int i = 0; i < site1.qoutecounter; i++)
+            {
+                site1.addqoute(Convert.ToString(Console.ReadLine()));
+            }
+            //Reading menu
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("============");
+            Console.WriteLine("Reading menu");
+            Console.WriteLine("============");
+            for (int i = 0; i <)
+        }
+
+        else if (Input1 ==3)
+        {
+            Console.ForegroundColor = ConsoleColor.Gray;
+            Console.WriteLine("===================");
+            Console.WriteLine("Wish you a good day");
+            Console.WriteLine("===================");
+        }
+
         else
         {
-            //Bye...
-            Console.WriteLine();
-            Console.WriteLine();
-            Console.WriteLine("Bye...");
-            Console.WriteLine();
-            Console.WriteLine();
+            return;
         }
+            //Create a Book (Datasave json)
+            //Choose a book/text
     }
+}
+
+class input
+{
+
 }
