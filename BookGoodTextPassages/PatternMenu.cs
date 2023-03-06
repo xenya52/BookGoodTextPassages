@@ -9,17 +9,22 @@ namespace BookGoodTextPassages
 {
     internal class PatternMenu
     {
-        /* Attributes */
-        public string PatternHeadline { get; set; } = "";
-        public string[] PatternText { get; set; } = new string[5];
+        /*MyPublicConstructor*/
+        // --------------
 
-        /*Etc*/
+
+        /*MyPublicAttributes */
+        public string PatternHeadline { get; set; }
+        public string[] PatternText { get; set; }
+        public string[] PatternPress { get; set; }
+
+        /*MyPrivateAttributes*/
         private string Line = "";
 
-        /* Methods */
+        /*MyPublicMethods*/
         public void PatternHeadLineMethod () // HeadLine
         {
-            for (int i = 0; i < PatternHeadline.Length; i++) //Makeing the Line with the same length as the HeadLine
+            for (int i = 0; i < PatternHeadline.Length; i++) // Makeing the Line with the same length as the HeadLine
             {
                 Line = Line.Insert(i, "=");
             }

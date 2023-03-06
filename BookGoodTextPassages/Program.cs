@@ -6,7 +6,7 @@ class Program
     static void Main(string[] args)
     {
 
-        //Introduction
+        /*Introduction*/
         Console.WriteLine("Welcome to my program!");
         Thread.Sleep(2000);
         Console.WriteLine("I will show you all the Book passages that toucht me deeply");
@@ -15,14 +15,28 @@ class Program
         Thread.Sleep(5000);
         Console.Clear();
 
-        /*Creating Main Menu*/
+        //MainMenu
         PatternMenu MainMenu = new();
-
-        MainMenu.PatternHeadline = "MainMenu"; // Define the Attributes
-        MainMenu.PatternText[0] = "Wanna write something?";
-        /*MainMenu.PatternHeadLineMethod();
-        MainMenu.PatternTextMethod();
-        Thread.Sleep(10000);*/
+        MainMenu.PatternHeadline = "MainMenu";
+        MainMenu.PatternText = new string[3]
+        {
+            "Example1",
+            "Example2",
+            "Example3"
+        };
+        MainMenu.PatternPress = new string[3]
+        {
+            "Example1",
+            "Example2",
+            "Example3"
+        };
+        Console.WriteLine(MainMenu.PatternText[0]);
+        Console.WriteLine(MainMenu.PatternText[1]);
+        Console.WriteLine(MainMenu.PatternText[2]);
+        Console.WriteLine(MainMenu.PatternPress[0]);
+        Console.WriteLine(MainMenu.PatternPress[1]);
+        Console.WriteLine(MainMenu.PatternPress[2]);
+        Thread.Sleep(10000);
 
 
 
