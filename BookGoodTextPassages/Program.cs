@@ -14,7 +14,22 @@ class Program
         Console.WriteLine("And you can write some too...");
         Thread.Sleep(5000);
         Console.Clear();
-        //Menu
+
+        /*Creating Main Menu*/
+        PatternMenu MainMenu = new();
+
+        MainMenu.PatternHeadline = "MainMenu"; // Define the Attributes
+        MainMenu.PatternText[0] = "Wanna write something?";
+        /*MainMenu.PatternHeadLineMethod();
+        MainMenu.PatternTextMethod();
+        Thread.Sleep(10000);*/
+
+
+
+
+
+
+        /*
         Console.ForegroundColor = ConsoleColor.Blue;
         Console.WriteLine("Welcome to the menu");
         Console.WriteLine("===================");
@@ -90,10 +105,6 @@ class Program
         }
             //Create a Book (Datasave json)
             //Choose a book/text
+        */
     }
-}
-
-class input
-{
-
 }
