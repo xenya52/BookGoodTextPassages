@@ -16,14 +16,13 @@ namespace BookGoodTextPassages
         /*MyPublicAttributes */
         public string PatternHeadline { get; set; }
         public string[] PatternText { get; set; }
-        public string[] PatternPress { get; set; }
 
         /*MyPrivateAttributes*/
-        private string Line = "";
 
         /*MyPublicMethods*/
         public void PatternHeadLineMethod () // HeadLine
         {
+            string Line = "";
             for (int i = 0; i < PatternHeadline.Length; i++) // Makeing the Line with the same length as the HeadLine
             {
                 Line = Line.Insert(i, "=");
@@ -34,9 +33,11 @@ namespace BookGoodTextPassages
             Console.WriteLine (PatternHeadline);
             Console.WriteLine (Line);
         }
-        public void PatternTextMethod () // Text and Declaration
+        public void PatternTextMethod()
         {
-            for (int i = 0; i < PatternText.Length;i++)
+            int PatternPress = 0;
+                PatternPress = PatternText.Length;
+            for (int i = 0; i < PatternText.Length; i++)
             {
                 Console.ForegroundColor = ConsoleColor.Cyan;
                 Console.WriteLine("|| " + PatternText);

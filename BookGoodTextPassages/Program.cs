@@ -20,22 +20,13 @@ class Program
         MainMenu.PatternHeadline = "MainMenu";
         MainMenu.PatternText = new string[3]
         {
-            "Example1",
-            "Example2",
-            "Example3"
+            "Wanna write something",    //0
+            "Wanna read something",     //1
+            "Wanna quit"                //2
         };
-        MainMenu.PatternPress = new string[3]
-        {
-            "Example1",
-            "Example2",
-            "Example3"
-        };
-        Console.WriteLine(MainMenu.PatternText[0]);
-        Console.WriteLine(MainMenu.PatternText[1]);
-        Console.WriteLine(MainMenu.PatternText[2]);
-        Console.WriteLine(MainMenu.PatternPress[0]);
-        Console.WriteLine(MainMenu.PatternPress[1]);
-        Console.WriteLine(MainMenu.PatternPress[2]);
+
+        MainMenu.PatternHeadLineMethod();
+        MainMenu.PatternTextMethod();
         Thread.Sleep(10000);
 
 
