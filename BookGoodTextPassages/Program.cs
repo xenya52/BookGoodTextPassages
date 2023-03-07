@@ -17,17 +17,23 @@ class Program
 
         //MainMenu
         PatternMenu MainMenu = new();
-        MainMenu.PatternHeadline = "MainMenu";
-        MainMenu.PatternText = new string[3]
+        MainMenu.PatternHeadLineMethod("MainMenu");
+        MainMenu.PatternTextMethod("Wanna write something", 1);
+        MainMenu.PatternTextMethod("Wanna read something", 2);
+        MainMenu.PatternTextMethod("Wanna quit the software", 3);
+        int InputMain = 0;
+            InputMain = Convert.ToInt32(Console.ReadLine());
+        if (InputMain == 1) 
         {
-            "Wanna write something",    //0
-            "Wanna read something",     //1
-            "Wanna quit"                //2
-        };
+        }
+        else if (InputMain == 2)
+        {
 
-        MainMenu.PatternHeadLineMethod();
-        MainMenu.PatternTextMethod();
-        Thread.Sleep(10000);
+        }
+        else if (InputMain == 3)
+        {
+        }
+        else { Console.WriteLine("Error"); }
 
 
 
@@ -35,23 +41,6 @@ class Program
 
 
         /*
-        Console.ForegroundColor = ConsoleColor.Blue;
-        Console.WriteLine("Welcome to the menu");
-        Console.WriteLine("===================");
-        Console.ForegroundColor = ConsoleColor.Cyan;
-        Console.WriteLine("|| Wanna write something?");
-        Console.ForegroundColor = ConsoleColor.DarkCyan;
-        Console.WriteLine("|| Press [ 1 ]");
-        Console.ForegroundColor = ConsoleColor.Cyan;
-        Console.WriteLine("|| Wanna read something?");
-        Console.ForegroundColor = ConsoleColor.DarkCyan;
-        Console.WriteLine("|| Press [ 2 ]");
-        Console.ForegroundColor = ConsoleColor.Cyan;
-        Console.WriteLine("||Wanna quit?");
-        Console.ForegroundColor = ConsoleColor.DarkCyan;
-        Console.WriteLine("||Press [ 3 ]");
-        int Input1 = Convert.ToInt32(Console.ReadLine());
-
         if (Input1 == 1)
         {
             //Creation menu

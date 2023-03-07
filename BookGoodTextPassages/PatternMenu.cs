@@ -9,18 +9,8 @@ namespace BookGoodTextPassages
 {
     internal class PatternMenu
     {
-        /*MyPublicConstructor*/
-        // --------------
-
-
-        /*MyPublicAttributes */
-        public string PatternHeadline { get; set; }
-        public string[] PatternText { get; set; }
-
-        /*MyPrivateAttributes*/
-
         /*MyPublicMethods*/
-        public void PatternHeadLineMethod () // HeadLine
+        public void PatternHeadLineMethod (string PatternHeadline) // HeadLine
         {
             string Line = "";
             for (int i = 0; i < PatternHeadline.Length; i++) // Makeing the Line with the same length as the HeadLine
@@ -32,18 +22,23 @@ namespace BookGoodTextPassages
             Console.WriteLine (Line);
             Console.WriteLine (PatternHeadline);
             Console.WriteLine (Line);
+            Console.WriteLine();
         }
-        public void PatternTextMethod()
+        public void PatternTextMethod(string PatternText, int Number)
         {
-            int PatternPress = 0;
-                PatternPress = PatternText.Length;
-            for (int i = 0; i < PatternText.Length; i++)
+            string Line = "";
+            for (int i = 0; i < PatternText.Length; i++) // Makeing the Line with the same length as the HeadLine
             {
-                Console.ForegroundColor = ConsoleColor.Cyan;
-                Console.WriteLine("|| " + PatternText);
-                Console.ForegroundColor = ConsoleColor.DarkCyan;
-                Console.WriteLine("|| Write : [ " + PatternPress + " ]");
+                Line = Line.Insert(i, "=");
             }
+            Console.ForegroundColor = ConsoleColor.Magenta;
+            Console.WriteLine(Line);
+            Console.WriteLine(PatternText);
+            Console.ForegroundColor = ConsoleColor.DarkMagenta;
+            Console.WriteLine("Write: [ " + Number + " ]");
+            Console.ForegroundColor = ConsoleColor.Magenta;
+            Console.WriteLine(Line);
+            Console.WriteLine ();
         }
     }
 }
