@@ -9,10 +9,17 @@ namespace BookGoodTextPassages
 {
     internal class Root
     {
-        public string[,] BookQuotes = new string[2, 2]
+        /*Attributes*/
+        //JsonToFile tutorial https://www.youtube.com/watch?v=BwQZbmwVEWA
+        public string Name { get; set; }
+        public string Description { get; set; }
+        /*Methods*/
+        public static void JsonToFile(object Object, string path)
         {
-        {"b","a"},
-        {"c","d"}
-        };
+            JsonSerializerOptions options = new JsonSerializerOptions();
+            options.WriteIndented = true;
+            string json = JsonSerializer.Serialize(Object);
+            File.WriteAllText(path, json);
+        }
     }
 }

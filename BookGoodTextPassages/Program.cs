@@ -1,40 +1,109 @@
 ﻿namespace BookGoodTextPassages;
 using System.Security.Cryptography.X509Certificates;
+using System.Text.Json;
+using System.IO;
 
 class Program
 {
     static void Main(string[] args)
     {
-
         /*Introduction*/
         Console.WriteLine("Welcome to my program!");
-        Thread.Sleep(2000);
+        Thread.Sleep(0);
         Console.WriteLine("I will show you all the Book passages that toucht me deeply");
-        Thread.Sleep(2000);
+        Thread.Sleep(0);
         Console.WriteLine("And you can write some too...");
-        Thread.Sleep(5000);
+        Thread.Sleep(0);
         Console.Clear();
 
-        //MainMenu
-        PatternMenu MainMenu = new();
-        MainMenu.PatternHeadLineMethod("MainMenu");
-        MainMenu.PatternTextMethod("Wanna write something", 1);
-        MainMenu.PatternTextMethod("Wanna read something", 2);
-        MainMenu.PatternTextMethod("Wanna quit the software", 3);
-        int InputMain = 0;
+        bool CheckPoint1 = true;
+        do //Reset point
+        {
+            /*MainMenu*/
+            PatternMenu MainMenu = new();
+            MainMenu.PatternHeadLineMethod("Main Menu");
+            MainMenu.PatternTextMethod("Wanna write something", 1);
+            MainMenu.PatternTextMethod("Wanna read something", 2);
+            MainMenu.PatternTextMethod("Wanna quit the software", 3);
+            int InputMain = 0;
             InputMain = Convert.ToInt32(Console.ReadLine());
-        if (InputMain == 1) 
-        {
-        }
-        else if (InputMain == 2)
-        {
+            Console.Clear();
 
-        }
-        else if (InputMain == 3)
-        {
-        }
-        else { Console.WriteLine("Error"); }
 
+            if (InputMain == 1)
+            {
+                /*WritingMenu*/
+                PatternMenu WritingMenu = new();
+                WritingMenu.PatternHeadLineMethod("Writing Menu");
+                WritingMenu.PatternTextMethod("Creating a new book", 1);
+                WritingMenu.PatternTextMethod("Creating a new quote", 2);
+                WritingMenu.PatternTextMethod("Back to Main Menu", 3);
+                InputMain = Convert.ToInt32(Console.ReadLine());
+                bool BookThere = false;
+                Console.Clear();
+                if (InputMain == 1)
+                {
+
+                }
+                else if (InputMain == 2 && BookThere == true)
+                {
+
+                }
+                else if (InputMain == 2 && BookThere == false)
+                {
+                    Console.WriteLine("Error: No book too put it inside");
+                    Thread.Sleep(5000);
+                    Console.Clear();
+                }
+                else if (InputMain == 3)
+                {
+                    return;
+                }
+                else
+                {
+                    Console.WriteLine("Error: No valid number");
+                    Thread.Sleep(5000);
+                    Console.Clear();
+                }
+            }
+
+
+            else if (InputMain == 2)
+            {
+                PatternMenu ReadingMenu = new();
+                ReadingMenu.PatternHeadLineMethod("Reading Menu");
+                ReadingMenu.PatternTextMethod("Choose the book", 1);
+                ReadingMenu.PatternTextMethod("Go to Main Menu",2);
+                InputMain = Convert.ToInt32(Console.ReadLine);
+                if (InputMain == 1)
+                {
+                    //First learn how you can save something in json https://www.youtube.com/watch?v=BwQZbmwVEWA (goto Root.cs Class)
+                    Root ExampleBook1 = new()
+                    {
+                        Name = "ExampleName1",
+                        Description ="ExmapleDescripton1"
+                    };
+                }
+                else if (InputMain == 2)
+                {
+                    return;
+                }
+            }
+
+
+            else if (InputMain == 3)
+            {
+                CheckPoint1 = false;
+            }
+
+
+            else 
+            { 
+                Console.WriteLine("Error: No valid number");
+                Thread.Sleep(5000);
+                Console.Clear();
+            }
+        } while (CheckPoint1 == true);
 
 
 
