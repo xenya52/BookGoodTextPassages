@@ -17,7 +17,7 @@ namespace BookGoodTextPassages
             {
                 Line = Line.Insert(i, "=");
             }
-
+            Console.Clear();
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine (Line);
             Console.WriteLine (PatternHeadline);
@@ -31,6 +31,7 @@ namespace BookGoodTextPassages
             {
                 Line = Line.Insert(i, "=");
             }
+            Console.Clear();
             Console.ForegroundColor = ConsoleColor.Magenta;
             Console.WriteLine(Line);
             Console.WriteLine(PatternText);

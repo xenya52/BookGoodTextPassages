@@ -21,6 +21,7 @@ class Program
         {
             /*MainMenu*/
             PatternMenu MainMenu = new();
+            BooksAndQuotesInput MainBAQ = new();
             MainMenu.PatternHeadLineMethod("Main Menu");
             MainMenu.PatternTextMethod("Wanna write something", 1);
             MainMenu.PatternTextMethod("Wanna read something", 2);
@@ -40,20 +41,18 @@ class Program
                 WritingMenu.PatternTextMethod("Back to Main Menu", 3);
                 InputMain = Convert.ToInt32(Console.ReadLine());
                 bool BookThere = false;
-                Console.Clear();
                 if (InputMain == 1)
                 {
-
+                    MainBAQ.BookInputMethod();
                 }
                 else if (InputMain == 2 && BookThere == true)
                 {
-
+                    MainBAQ.QuoteInputMethod();
                 }
                 else if (InputMain == 2 && BookThere == false)
                 {
                     Console.WriteLine("Error: No book too put it inside");
                     Thread.Sleep(5000);
-                    Console.Clear();
                 }
                 else if (InputMain == 3)
                 {
@@ -63,7 +62,6 @@ class Program
                 {
                     Console.WriteLine("Error: No valid number");
                     Thread.Sleep(5000);
-                    Console.Clear();
                 }
             }
 
@@ -78,11 +76,6 @@ class Program
                 if (InputMain == 1)
                 {
                     //First learn how you can save something in json https://www.youtube.com/watch?v=BwQZbmwVEWA (goto Root.cs Class)
-                    Root ExampleBook1 = new()
-                    {
-                        Name = "ExampleName1",
-                        Description ="ExmapleDescripton1"
-                    };
                 }
                 else if (InputMain == 2)
                 {
@@ -98,10 +91,10 @@ class Program
 
 
             else 
-            { 
+            {
+                Console.Clear();
                 Console.WriteLine("Error: No valid number");
                 Thread.Sleep(5000);
-                Console.Clear();
             }
         } while (CheckPoint1 == true);
 
