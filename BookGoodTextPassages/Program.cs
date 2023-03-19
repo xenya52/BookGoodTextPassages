@@ -19,17 +19,16 @@ class Program
         bool CheckPoint1 = true;
         do //Reset point
         {
+            /*Object for my written Books and Quotes*/
+            BooksQuotesSave booksQuotesSave = new();
             /*MainMenu*/
             PatternMenu MainMenu = new();
-            BooksAndQuotesInput MainBAQ = new();
             MainMenu.PatternHeadLineMethod("Main Menu");
             MainMenu.PatternTextMethod("Wanna write something", 1);
             MainMenu.PatternTextMethod("Wanna read something", 2);
             MainMenu.PatternTextMethod("Wanna quit the software", 3);
             int InputMain = 0;
             InputMain = Convert.ToInt32(Console.ReadLine());
-            Console.Clear();
-
 
             if (InputMain == 1)
             {
@@ -43,11 +42,13 @@ class Program
                 bool BookThere = false;
                 if (InputMain == 1)
                 {
-                    MainBAQ.BookInputMethod();
+                    booksQuotesSave.SaveBook();
+                    JsonToFile(booksQuotesSave.Books, "SaveBook");
                 }
                 else if (InputMain == 2 && BookThere == true)
                 {
-                    MainBAQ.QuoteInputMethod();
+                    booksQuotesSave.SaveQuote();
+                    JsonToFile(booksQuotesSave.Quotes, "MainBAQTestSave");
                 }
                 else if (InputMain == 2 && BookThere == false)
                 {
@@ -92,7 +93,6 @@ class Program
 
             else 
             {
-                Console.Clear();
                 Console.WriteLine("Error: No valid number");
                 Thread.Sleep(5000);
             }
@@ -162,5 +162,12 @@ class Program
             //Create a Book (Datasave json)
             //Choose a book/text
         */
+    }
+    public static void JsonToFile(object Object, string path)
+    {
+        JsonSerializerOptions options = new JsonSerializerOptions();
+        options.WriteIndented = true;
+        string json = JsonSerializer.Serialize(Object, typeof(Object), options);
+        File.WriteAllText(path, json);
     }
 }
