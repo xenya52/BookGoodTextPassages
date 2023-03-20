@@ -1,5 +1,7 @@
-﻿namespace BookGoodTextPassages;
+﻿using System.Text.Json;//You need to add this
+using System.IO; //You need to add this too
 using System.Security.Cryptography.X509Certificates;
+namespace BookGoodTextPassages;
 using System.Text.Json;
 using System.IO;
 
@@ -76,7 +78,16 @@ class Program
                 InputMain = Convert.ToInt32(Console.ReadLine);
                 if (InputMain == 1)
                 {
-                    //First learn how you can save something in json https://www.youtube.com/watch?v=BwQZbmwVEWA (goto Root.cs Class)
+                    /*OutputFromJsonData*/
+                    BooksQuotesSave booksQuotesFromJsonFile = ConfigReader("SaveBook.json");
+                    Console.WriteLine(booksQuotesFromJsonFile.Books);
+                    //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                    /*ToReadAJsonData*/
+                    static BooksQuotesSave ConfigReader (string path)
+                    {
+                        string json = File.ReadAllText(path);
+                        return JsonSerializer.Deserialize<BooksQuotesSave>(json);
+                    }
                 }
                 else if (InputMain == 2)
                 {
