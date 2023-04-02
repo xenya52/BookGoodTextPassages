@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
-using System.Text;
 using System.Threading.Tasks;
-
+using System.Text.Json;//You need to add this
+using System.IO; //You need to add this too
 namespace BookGoodTextPassages
 {
     internal class PatternMenu

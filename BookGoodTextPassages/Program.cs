@@ -12,7 +12,7 @@ class Program
         /*Introduction*/
         Console.WriteLine("Welcome to my program!");
         Thread.Sleep(0);
-        Console.WriteLine("I will show you all the Book passages that toucht me deeply");
+        Console.WriteLine("I will show you all the Book passages that touched me deeply");
         Thread.Sleep(0);
         Console.WriteLine("And you can write some too...");
         Thread.Sleep(0);
@@ -44,13 +44,13 @@ class Program
                 bool BookThere = false;
                 if (InputMain == 1)
                 {
-                    booksQuotesSave.SaveBook();
-                    JsonToFile(booksQuotesSave.Books, "SaveBook");
+                    booksQuotesSave.SaveANewBook();
+                    JsonToFile(booksQuotesSave.Books, "SaveBookAndQuote");
                 }
                 else if (InputMain == 2 && BookThere == true)
                 {
-                    booksQuotesSave.SaveQuote();
-                    JsonToFile(booksQuotesSave.Quotes, "MainBAQTestSave");
+                    booksQuotesSave.SaveANewQuote();
+                    JsonToFile(booksQuotesSave.Quotes, "SaveBookAndQuote");
                 }
                 else if (InputMain == 2 && BookThere == false)
                 {
@@ -75,21 +75,22 @@ class Program
                 ReadingMenu.PatternHeadLineMethod("Reading Menu");
                 ReadingMenu.PatternTextMethod("Choose the book", 1);
                 ReadingMenu.PatternTextMethod("Go to Main Menu",2);
-                InputMain = Convert.ToInt32(Console.ReadLine);
+                InputMain = Convert.ToInt32(Console.ReadLine());
                 if (InputMain == 1)
                 {
-                    /*OutputFromJsonData*/
-                    BooksQuotesSave booksQuotesFromJsonFile = ConfigReader("SaveBook.json");
-                    Console.WriteLine(booksQuotesFromJsonFile.Books);
-                    //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                     /*ToReadAJsonData*/
                     static BooksQuotesSave ConfigReader (string path)
                     {
                         string json = File.ReadAllText(path);
                         return JsonSerializer.Deserialize<BooksQuotesSave>(json);
                     }
+                    /*OutputFromReadingJsonData*/
+                    BooksQuotesSave booksQuotesFromJsonFile = ConfigReader("SaveBookAndQuote");
+                    /*Choose the book*/
+                    Console.ReadLine(booksQuotesFromJsonFile.Books);
+                    Console.ReadKey();
                 }
-                else if (InputMain == 2)
+                else if (InputMain == 666)
                 {
                     return;
                 }

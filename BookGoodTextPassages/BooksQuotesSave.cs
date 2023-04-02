@@ -5,19 +5,19 @@ namespace BookGoodTextPassages;
 public class BooksQuotesSave : UserInput
 {
     /*BooksSave*/
-    public List<string> Books = new List<string>();
+    public List<string> Books { get; set; } = new List<string>();
 
-    public void SaveBook()
+    public void SaveANewBook()
     {
         Console.ForegroundColor = ConsoleColor.Green;
-        Console.Write("Write you quote here: ");
+        Console.Write("Write you new Book here: ");
         UserInputBooks = Convert.ToString(Console.ReadLine());
         Books.Add(UserInputBooks);
     }
 
     public List<string> Quotes = new List<string>();
 
-    public void SaveQuote()
+    public void SaveANewQuote()
     {
         Console.ForegroundColor = ConsoleColor.Green;
         Console.Write("Write you quote here: ");
