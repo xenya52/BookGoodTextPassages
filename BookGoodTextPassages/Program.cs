@@ -9,13 +9,30 @@ class Program
 {
     static void Main(string[] args)
     {
-      /*OBJECTS AND STRINGS*/
-      PatternMenu StartMenü = new();
-      PatternMenu CreateMenü = new();
-      PatternMenu CreateBookMenü = new();
-      PatternMenu CreateQuoteMenü = new();
-      string UserNavigation = String.Empty;
-      /*using System;
+        bool testloop = true;
+        PatternMenu StartMenü = new();
+        PatternMenu CreateMenü = new();
+        PatternMenu CreateBookMenü = new();
+        PatternMenu CreateQuoteMenü = new();
+        string UserNavigation = String.Empty;
+        CBookCollection createBookCollection = new();
+        do
+        {
+            createBookCollection.BookInputToListMethod();
+            JsonToFile(createBookCollection,"BookAndQuotesSave");
+        } while (testloop);
+        
+    }
+    public static void JsonToFile(object Object, string path)
+    {
+        JsonSerializerOptions options = new JsonSerializerOptions();
+        options.WriteIndented = true;
+        string json = JsonSerializer.Serialize(Object, typeof(Object), options);
+        File.WriteAllText(path, json); // Path: C:\Users\Xenmi\Desktop\Software\C# Json\Json\Json\bin\Debug\net6.0
+    }
+}
+
+/*using System;
 using System.Collections.Generic;
 using System.Text.Json;//You need to add this
 using System.IO; //You need to add this too
@@ -23,18 +40,18 @@ using System.IO; //You need to add this too
 namespace Json;
 internal class Program
 {
-    static void Main(string[] args)
-    {
-        Config _config = new Config();
-        _config.Token = "t0k3n";
-        _config.Port = 9966;
-        _config.TimeStamp = DateTime.Now;
-        _config.Tags = new List<string>() { "string1", "string2", "string3" };
-        JsonToFile(_config, "config.json");
-        Config ConfigFromFile = ConfigReader("config.json");
-        Console.WriteLine(ConfigFromFile.Token); //Watch aigan https://www.youtube.com/watch?v=BwQZbmwVEWA
-    }
-    /*ToSaveInAJsonData*//*
+static void Main(string[] args)
+{
+  Config _config = new Config();
+  _config.Token = "t0k3n";
+  _config.Port = 9966;
+  _config.TimeStamp = DateTime.Now;
+  _config.Tags = new List<string>() { "string1", "string2", "string3" };
+  JsonToFile(_config, "config.json");
+  Config ConfigFromFile = ConfigReader("config.json");
+  Console.WriteLine(ConfigFromFile.Token); //Watch aigan https://www.youtube.com/watch?v=BwQZbmwVEWA
+}
+/*ToSaveInAJsonData*//*
       public static void JsonToFile(object Object, string path)
       {
           JsonSerializerOptions options = new JsonSerializerOptions();
@@ -59,5 +76,3 @@ internal class Program
     }
 
     */
-    }
-}
